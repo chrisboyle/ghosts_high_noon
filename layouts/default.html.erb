@@ -9,23 +9,20 @@
 </head>
 <body><div id="bgtitle"><%=  this_blog.blog_name %></div>
   <div id="wrapper"><div id="inner"><div id="header">
-          <h1 id="sitename"><%= link_to this_blog.blog_name, { :controller => '/' } %></h1>
+          <h1 id="sitename"><%= link_to this_blog.blog_name, this_blog.base_url %></h1>
           <h2 id="subtitle"><%= this_blog.blog_subtitle %></h2>
       </div>
        <div id="sidebar">
-          <div id="search"> <%= render :partial => "shared/search" %><div id="search-results"></div></div>
-        
-
             <%= render_sidebars %>
             <%= link_to image_tag("powered.gif"),  "http://typosphere.org", {:class => "powered" } %>
             </div>
-  
-      
+
+
         <div id="main">
-          <%= @content_for_layout %>
+          <%= yield %>
           <%= javascript_tag "show_dates_as_local_time()" %>
         </div>
- 
+
       <div id="footer">
         <ul>
           <li><a href="http://validator.w3.org/check?uri=referer">Valid XHTML 1.0</a></li>

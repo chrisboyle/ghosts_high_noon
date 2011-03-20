@@ -69,7 +69,6 @@ display:none;
 padding:0 0 .1em 0;
 margin:0;
 font-family:Georgia, "Times New Roman", Times, serif;
-text-transform:uppercase;
 width:100%;
 border-bottom:1px solid #A11919;
 font-weight:normal;
@@ -90,6 +89,7 @@ margin-bottom:.5em;
 /* SIDEBAR */
 #sidebar {
 float:left;
+clear: left;
 width:13em;
 }
 #sidebar   a {
@@ -179,7 +179,6 @@ margin-left:14em;
 /*POSTING*/
 
 .post {
-line-height:1.7em;
 font-size:small;
 background-image:url(/images/theme/postbg.png);
 background-repeat:no-repeat;
@@ -192,7 +191,6 @@ background-image:url(/images/theme/postbg.gif);
 .auth {
 margin-top:.5em;
 color:#433C1F;
-text-transform:uppercase;
 font-size:x-small;
 line-height:1;
 }
@@ -209,7 +207,6 @@ font-size:x-large;
 font-weight:normal;
 margin:0 0 -.2em 0;
 padding:0;
-text-transform:uppercase;
 line-height:1;
 }
  
@@ -247,7 +244,6 @@ background-image:url(/images/theme/combg.png);
 background-repeat:no-repeat;
 background-position:top left;
 padding:.75em;
-line-height:1.7em;
 font-size:small;
 }
 
@@ -263,7 +259,6 @@ font-size:large;
 font-weight:normal;
 margin:0 0 -.2em 0;
 padding:0;
-text-transform:uppercase;
 line-height:1;
 }
 
@@ -282,6 +277,17 @@ right:0;
 .frm-tbl td {
 vertical-align:top;
 font-size:small;
+}
+
+#logo {
+	float: left;
+	width: 152px;
+	height: 75px;
+}
+
+#subtitle {
+	font-style: italic;
+	border: none;
 }
 
 /* ADMIN TOOLS */

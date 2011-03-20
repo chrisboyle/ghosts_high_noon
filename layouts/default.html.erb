@@ -9,6 +9,7 @@
 </head>
 <body><div id="bgtitle"><%=  this_blog.blog_name %></div>
   <div id="wrapper"><div id="inner"><div id="header">
+          <%= link_to image_tag('theme/logo.png', :id => 'logo'), this_blog.base_url %>
           <h1 id="sitename"><%= link_to this_blog.blog_name, this_blog.base_url %></h1>
           <h2 id="subtitle"><%= this_blog.blog_subtitle %></h2>
       </div>

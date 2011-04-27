@@ -4,21 +4,20 @@
        xmlns:dc="http://purl.org/dc/elements/1.1/">
 <rdf:Description
     rdf:about=""
-    trackback:ping="<%= url_for :controller=>"articles", :action=>"trackback", :id=>@article %>"
     dc:title="<%=h @article.title.gsub(/-+/, '-') %>"
-    dc:identifier="<%= url_for :controller=>"articles", :action=>"read", :id=>@article %>"
+    dc:identifier="<%= @article.permalink_url %>"
     dc:description="<%=h (@article.html.strip_html[0..255]).gsub(/-+/, '-') %>"
     dc:creator="<%= h @article.author %>"
     dc:date="<%= @article.updated_at.xmlschema %>" />
 </rdf:RDF>
 -->
 
-<div class="post"<%= onhover_show_admin_tools(:article) %>>
-  <%= link_to("edit", { :controller => "admin/content", :action => "edit", :id => @article },
+<div class="post">
+  <%= link_to("edit", { :controller => "admin/content", :action => "edit", :id => @article.id },
         :class => "admintools", :style => "display: none", :id => "admin_article") %>
   <h2><%= @article.title %></h2>
   <p class="auth">Posted by <%= author_link(@article) %>
-  <%= js_distance_of_time_in_words_to_now @article.created_at.utc %></p>
+  <%= display_date_and_time @article.published_at %></p>
   <%= @article.html(:body) %>
 </div>
 
@@ -31,27 +30,14 @@
 <% end -%>
   <%= content_tag(:ol, render(:partial => "comment", :collection => @article.comments), :id => 'commentList', :class => 'comment-list') %>
   </div>
-<% end -%>
-
-<% if @article.allow_pings? -%>
-  <div id="trackbacks"><h4>Trackbacks</h4>
-  <p>
-    Use the following link to trackback from your own site:<br/>
-    <span class="light-bg"><%= url_for :controller=>"articles", :action=>"trackback", :id=>@article.id %></span>
-    </p>    
-  <%= content_tag(:ol, render(:partial => "trackback", :collection => @article.trackbacks), :id => 'trackbackList', :class => 'trackback-list') %>  
-  </div>
-<% end -%>
 
 <p class="postmetadata alt">
   <small>
   <a href="<%= url_for :controller => 'xml', :action=>'feed', :type=>'article', :format => 'atom', :id => @article %>">Atom feed for this post</a>
-  <a href="<%= url_for :controller=>"articles", :action=>"trackback", :id=>@article.id %>">trackback uri</a>  
   </small>
 </p>
+<% end -%>
 
 <% if @article.allow_comments? -%>
   <%= render :partial => 'comment_box' %>
-<% else -%>
-  <p>Comments are disabled</p>
 <% end -%>

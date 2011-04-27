@@ -1,5 +1,6 @@
-### Ghostpaper
+### Ghost's High Noon
 
-Transparent PNG fun by [Jake Badger][1]
+Theme for Cambridge G&S Society by [Chris Boyle][1], based on Ghostpaper by [Jake Badger][2]
 
-[1]: http://www.badger.com.au/ "badger web design"
+[1]: http://chris.boyle.name/
+[2]: http://www.badger.com.au/ "badger web design"
